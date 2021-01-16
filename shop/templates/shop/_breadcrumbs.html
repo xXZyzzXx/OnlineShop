@@ -1,0 +1,13 @@
+<div class="breadcrumb-area ptb-20 ptb-sm-30">
+    <div class="container">
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="{% url 'shop:index' %}"><i class="fa fa-home"></i> Главная</a></li>
+                {% for node in category.get_ancestors %}
+                    <li ><a href="{{node.get_absolute_url}}">{{node.title}}</a></li>
+                {% endfor %}
+                <li class="active"><a href="{{node.get_absolute_url}}">{{category.title}}</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
